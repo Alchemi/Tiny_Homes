@@ -1,6 +1,6 @@
 PROJECT NAME
 # Tiny_Homes 
- # Realty E-Commerce Website
+ # Real Estate Website
 Project Description
   ## Specializing in Tiny Homes
 ## Technologies Used
