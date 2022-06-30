@@ -1,4 +1,4 @@
-import React, { useState, useRef} from "react"
+import React, { useState} from "react"
 import { Form, Button, Card, FormGroup, Input, Label, Alert } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Form.css';
@@ -6,9 +6,7 @@ import {Link, useNavigate} from "react-router-dom"
 import {useUserAuth} from "../contexts/UserAuthContext"
 
 const Signup=()=> {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
+ 
    
     const [error, setError] = useState("");
     
@@ -16,7 +14,7 @@ const Signup=()=> {
     const [password, setPassword]=useState("");
     const [confirmpassword, setConfirmPassword]=useState("");
     const {signUp}=useUserAuth();
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     
     const handleSubmit= async (e)=> {
         e.preventDefault();
@@ -38,7 +36,7 @@ const Signup=()=> {
   
     return (
     <div className="p-4 box">
-    <h2 className="text-center mb-4">Sign Up</h2>
+    <h2 className="text-center mb-4">Tiny Homes Sign Up</h2>
     {error && <Alert variant="danger">{error}</Alert>}
     <Card className="card">
         <Form className="form" onSubmit={handleSubmit}>
