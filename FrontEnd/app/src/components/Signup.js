@@ -6,6 +6,7 @@ import {Link, useNavigate} from "react-router-dom"
 import {useUserAuth} from "../contexts/UserAuthContext"
 
 const Signup=()=> {
+ 
    
     const [error, setError] = useState("");
     
@@ -13,17 +14,17 @@ const Signup=()=> {
     const [password, setPassword]=useState("");
     const [confirmpassword, setConfirmPassword]=useState("");
     const {signUp}=useUserAuth();
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     
     const handleSubmit= async (e)=> {
         e.preventDefault();
-        setError("");
-        if (password !== confirmpassword) {
-           setError("Passwords do not match")
-           
+         if (await(password!== confirmpassword)){
+          return setError("Passwords do not match")
         }
+        
     
         try {
+          
           setError("")
           await signUp(email, password)
           navigate("/")
@@ -35,16 +36,17 @@ const Signup=()=> {
   
     return (
     <div className="p-4 box">
-    <h2 className="text-center mb-4">Sign Up</h2>
+    <h2 className="text-center mb-4">Tiny Homes Sign Up</h2>
     {error && <Alert variant="danger">{error}</Alert>}
     <Card className="card">
         <Form className="form" onSubmit={handleSubmit}>
           <FormGroup>
-            <Label for="email">Username</Label>
+            <Label for="email">Email</Label>
                 <Input
                     type="email"                 
                     placeholder="example@example.com"
                     onChange={(e)=>setEmail(e.target.value)}
+                    required
                 />
           </FormGroup>
           <FormGroup>
@@ -53,6 +55,7 @@ const Signup=()=> {
                 type="password"
                 placeholder="********"
                 onChange={(e)=>setPassword(e.target.value)}
+                required
                 />
           </FormGroup>
           <FormGroup>
@@ -61,6 +64,7 @@ const Signup=()=> {
                 type="password"
                 placeholder="********"
                 onChange={(e)=>setConfirmPassword(e.target.value)}
+                required
                 />
           </FormGroup>
         <Button>Submit</Button>

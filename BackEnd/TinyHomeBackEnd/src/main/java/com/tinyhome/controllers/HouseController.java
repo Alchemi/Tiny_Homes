@@ -1,6 +1,7 @@
 package com.tinyhome.controllers;
 
 import java.util.ArrayList;	
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,11 +72,12 @@ public class HouseController {
     public static ResponseEntity<House> addHouse(@RequestBody House house){
     	System.out.println(house.getId());
     	
-    	if(house.getHouseName() == null) {
-    		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(house);
+    	if(house.getHousename() == null) {
+    		System.out.println(house.getHousename());
+    		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     	} else {
     		HouseService.addHouse(house);
-    		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(house);
+    		return ResponseEntity.status(HttpStatus.OK).body(house);
     	}
     }
 

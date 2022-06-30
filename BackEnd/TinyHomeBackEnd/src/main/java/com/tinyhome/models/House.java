@@ -19,14 +19,14 @@ public class House {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	int id;
+	private int id;
 	@Column(name = "house_name", nullable = false)
-	String housename;
-	String description;
-	double price;
-	public int size;
-	public int baths;
-	public int rooms;
+	private String housename;
+	private String description;
+	private double price;
+	private int size;
+	private int baths;
+	private int rooms;
 	
 	public House() {
 		super();
@@ -70,16 +70,19 @@ public class House {
 		return description;
 	}
 
-	public String getHouseName() {
+	
+
+	
+	public String getHousename() {
 		return housename;
 	}
 
 
-	public void setHousetName(String housename) {
+	public void setHousename(String housename) {
 		this.housename = housename;
 	}
 
-	
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
