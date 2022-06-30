@@ -68,7 +68,7 @@ public class HouseController {
 	}
 	
     @PostMapping("/addhouse")//adds product to database, not used until admin side of frontend is added
-    public static ResponseEntity<House> addProduct(@RequestBody House house){
+    public static ResponseEntity<House> addHouse(@RequestBody House house){
     	System.out.println(house.getId());
     	
     	if(house.getHouseName() == null) {
