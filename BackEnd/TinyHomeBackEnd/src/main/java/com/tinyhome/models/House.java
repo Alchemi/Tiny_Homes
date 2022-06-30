@@ -145,6 +145,10 @@ public class House {
 			return false;
 		if (size != other.size)
 			return false;
+		if(baths != other.baths)
+			return false;
+		if(rooms != other.rooms)
+			return false;
 		return true;
 	}
 
