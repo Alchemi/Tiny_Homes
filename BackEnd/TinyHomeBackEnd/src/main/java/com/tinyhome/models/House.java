@@ -1,4 +1,4 @@
-package com.tinyhome.product;
+package com.tinyhome.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,9 +23,10 @@ public class House {
 	@Column(name = "house_name", nullable = false)
 	String housename;
 	String description;
-	@Column(name = "product_type")
 	double price;
 	public int size;
+	public int baths;
+	public int rooms;
 	
 	public House() {
 		super();
@@ -33,32 +34,16 @@ public class House {
 	}
 
 	
-	public House(int id, String productname, String description,
-			double price, int size) {
+	public House(int id, String homename, String description,
+			double price, int size, int rooms, int baths) {
 		super();
 		this.id = id;
-		this.housename = productname;
+		this.housename = homename;
 		this.description = description;
 		this.price = price;
 		this.size = size;
-	}
-
-
-	public House(int id, String productName, double price) {
-		super();
-		this.id = id;
-		this.housename = productName;
-		this.price = price;
-	}
-	
-
-
-	public House(int id, String productName, String description, double price) {
-		super();
-		this.id = id;
-		this.housename = productName;
-		this.description = description;
-		this.price = price;
+		this.rooms = rooms;
+		this.baths = baths;
 	}
 
 
@@ -105,7 +90,22 @@ public class House {
 	public void setSize(int size) {
 		this.size = size;
 	}
+	
+	public int getRooms() {
+		return rooms;
+	}
+	public void setRooms(int rooms) {
+		this.rooms = rooms;
+	}
+	
+	public int getBaths() {
+		return baths;
+	}
 
+	public void setBaths(int baths) {
+		this.baths = baths;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -150,7 +150,7 @@ public class House {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", housename=" + housename + ", description=" + description
-				 + ", price=" + price + ", size=" + size + "]";
+		return "House [id=" + id + ", housename=" + housename + ", description=" + description
+				 + ", price=" + price + ", size=" + size + ", baths=" + baths + "rooms= " + rooms + "]";
 	}
 }
