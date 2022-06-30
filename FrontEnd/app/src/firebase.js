@@ -1,14 +1,15 @@
-import firebase from 'firebase/app'
-import "firebase/auth"
+import { initializeApp } from "firebase/app";
+import {getAuth} from "firebase/auth";
 
-const app = firebase.initializeApp({
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID
-})
+const firebaseConfig = {
+  apiKey: "AIzaSyCjVhSkkrO8ifVOE5kDV9JLZX3-u21FqQs",
+  authDomain: "tiny-auth-development.firebaseapp.com",
+  projectId: "tiny-auth-development",
+  storageBucket: "tiny-auth-development.appspot.com",
+  messagingSenderId: "10957208203",
+  appId: "1:10957208203:web:9945882e6fced1c6feb28e"
+};
 
-export const auth = app.auth()
-export default app
+const app = initializeApp(firebaseConfig); 
+export const auth = getAuth(app);
+export default app;
