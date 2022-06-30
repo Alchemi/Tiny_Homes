@@ -1,4 +1,4 @@
-import React, { useState} from "react"
+import React, { useState, useRef} from "react"
 import { Form, Button, Card, FormGroup, Input, Label, Alert } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Form.css';
@@ -6,6 +6,9 @@ import {Link, useNavigate} from "react-router-dom"
 import {useUserAuth} from "../contexts/UserAuthContext"
 
 const Signup=()=> {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const passwordConfirmRef = useRef()
    
     const [error, setError] = useState("");
     
@@ -17,13 +20,13 @@ const Signup=()=> {
     
     const handleSubmit= async (e)=> {
         e.preventDefault();
-        setError("");
-        if (password !== confirmpassword) {
-           setError("Passwords do not match")
-           
+         if (await(password!== confirmpassword)){
+          return setError("Passwords do not match")
         }
+        
     
         try {
+          
           setError("")
           await signUp(email, password)
           navigate("/")
@@ -40,11 +43,12 @@ const Signup=()=> {
     <Card className="card">
         <Form className="form" onSubmit={handleSubmit}>
           <FormGroup>
-            <Label for="email">Username</Label>
+            <Label for="email">Email</Label>
                 <Input
                     type="email"                 
                     placeholder="example@example.com"
                     onChange={(e)=>setEmail(e.target.value)}
+                    required
                 />
           </FormGroup>
           <FormGroup>
@@ -53,6 +57,7 @@ const Signup=()=> {
                 type="password"
                 placeholder="********"
                 onChange={(e)=>setPassword(e.target.value)}
+                required
                 />
           </FormGroup>
           <FormGroup>
@@ -61,6 +66,7 @@ const Signup=()=> {
                 type="password"
                 placeholder="********"
                 onChange={(e)=>setConfirmPassword(e.target.value)}
+                required
                 />
           </FormGroup>
         <Button>Submit</Button>
