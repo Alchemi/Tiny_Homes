@@ -10,12 +10,12 @@
      <!-- JDBC -->
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">password</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=ecommerce</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=tinyhome</property>
         <!-- You guys will replace "localhost" with your AWS end point URL ^ and you will need to changed your ^ schema name, but beyond that the only thing you will really touch is create/update-->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <!-- Hibernate Properties -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-        <property name="hibernate.default_schema">ecommerce</property> <!-- This should be the name of your schema -->
+        <property name="hibernate.default_schema">tinyhome</property> <!-- This should be the name of your schema -->
         <!-- Hibernate console output -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
@@ -26,10 +26,8 @@
 		<!-- It will wipe all tables and data, and recreate it -->
 
         <!-- We HAVE TO map our classes here in order for them to get picked up by Hibernate-->
-        <mapping class="com.revature.models.User"/>
-        <mapping class="com.revature.models.Product"/>
-		<mapping class="com.revature.models.Address"/>
-		<mapping class="com.revature.models.OrderHistory"/>
+        <mapping class="com.tinyhome.models.User"/>
+        <mapping class="com.tinyhome.models.House"/>
 		
         
         
