@@ -2,7 +2,11 @@
 
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd%22%3E
+
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 
  <hibernate-configuration>
      <session-factory>
@@ -23,14 +27,19 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
         <!-- Remember to change this to update-->
+
+        <!-- It will wipe all tables and data, and recreate it -->
+
 		<!-- It will wipe all tables and data, and recreate it -->
 
+
         <!-- We HAVE TO map our classes here in order for them to get picked up by Hibernate-->
+
         <mapping class="com.tinyhome.models.User"/>
         <mapping class="com.tinyhome.models.House"/>
-		
-        
-        
+
+
 
      </session-factory>
  </hibernate-configuration>
+
