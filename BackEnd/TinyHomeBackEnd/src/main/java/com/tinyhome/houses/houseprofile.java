@@ -23,7 +23,6 @@ public class  houseprofile{
 	@Column(name = "product_name", nullable = false)
 	String productname;
 	String description;
-	@Column(name = "product_type")
 	double price;
 	public int size;
 	
@@ -33,7 +32,7 @@ public class  houseprofile{
 	}
 
 	
-	public houseprofile(int id, String productname, String description, com.revature.models.producttype producttype,
+	public houseprofile(int id, String productname, String description,
 			double price, int size) {
 		super();
 		this.id = id;
@@ -90,24 +89,13 @@ public class  houseprofile{
 		this.productname = productname;
 	}
 
-	public producttype getProducttype() {
-		return producttype;
-	}
-
-	public void setProducttype(producttype producttype) {
-		this.producttype = producttype;
-	}
+	
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -119,8 +107,7 @@ public class  houseprofile{
 		temp = Double.doubleToLongBits(price);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((productname == null) ? 0 : productname.hashCode());
-		result = prime * result + ((producttype == null) ? 0 : producttype.hashCode());
-		result = prime * result + quantity;
+		result = prime * result + size;
 		return result;
 	}
 
@@ -132,7 +119,7 @@ public class  houseprofile{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Product other = (Product) obj;
+		houseprofile other = (houseprofile) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -147,16 +134,14 @@ public class  houseprofile{
 				return false;
 		} else if (!productname.equals(other.productname))
 			return false;
-		if (producttype != other.producttype)
-			return false;
-		if (quantity != other.quantity)
+		if (size != other.size)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", productname=" + productname + ", description=" + description + ", producttype="
-				+ producttype + ", price=" + price + ", quantity=" + quantity + "]";
+		return "houseprofile [id=" + id + ", productname=" + productname + ", description=" + description + ", price="
+				+ price + ", size=" + size + "]";
 	}
 }
