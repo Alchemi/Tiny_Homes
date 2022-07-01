@@ -11,7 +11,7 @@ export default function Login(){
     const [error, setError] = useState("");    
     const [email, setEmail] = useState("");
     const [password, setPassword]=useState("");
-    const {logIn}=useUserAuth();
+    const {logIn, googleSignIn}=useUserAuth();
     const navigate = useNavigate();
     
     const handleSubmit= async (e)=> {
@@ -25,7 +25,18 @@ export default function Login(){
           
         }
       };
+    const handleGoogleSignin = async (e) => {
+        e.preventDefault();
+        try{
+            await googleSignIn();
+            navigate("signup")
 
+        } catch(err){
+            setError(err.message)
+
+        }
+
+    };
     return(
     <div className="p-4 box">
     <h2 className="text-center mb-4">Tiny Homes Log In</h2>
@@ -61,11 +72,11 @@ export default function Login(){
     
     <div>
         <br></br>
-        <GoogleButton className="g-btn" type="dark"/>
+        <GoogleButton className="g-btn" type="dark" onClick={handleGoogleSignin}/>
     </div>
   </Form>
         <div className="w-100 text-center mt-3">
-            Forgot Password?
+           <Link to="/forgotpassword">Forgot Password?</Link> 
         </div>
 </Card>
         <div className="w-100 text-center mt-2">
