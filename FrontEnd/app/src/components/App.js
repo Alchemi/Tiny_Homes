@@ -5,7 +5,7 @@ import { Container} from 'react-bootstrap'
 import Login from "./Login"
 
 function App() {
-  return <Signup/>
+  return <login/>
   
 }
 
