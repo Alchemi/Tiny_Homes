@@ -3,7 +3,7 @@ import { Form, Button, Card, FormGroup, Input, Label, Alert } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Form.css';
 import {Link, useNavigate} from "react-router-dom"
-import {useUserAuth} from "../contexts/UserAuthContext"
+import {useUserAuth} from "../../contexts/UserAuthContext"
 
 const Signup=()=> {
  

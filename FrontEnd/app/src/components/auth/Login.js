@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import { Form, Button, Card, FormGroup, Input, Label, Alert } from "reactstrap";
+import { Form, Button, Card, FormGroup, Input, Alert, Navbar} from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import GoogleButton from "react-google-button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Form.css';
 import {Link} from "react-router-dom";
-import { useUserAuth } from "../contexts/UserAuthContext";
+import { useUserAuth } from "../../contexts/UserAuthContext";
 
 export default function Login(){
     const [error, setError] = useState("");    
@@ -38,36 +38,45 @@ export default function Login(){
 
     };
     return(
+      <div>
+        
+        
+        
+        <Navbar className="nav">
+        <text >Languages</text>
+        
+        <span className="title mx-auto">THP</span>
+        </Navbar>
     <div className="p-4 box">
-    <h2 className="text-center mb-4">Tiny Homes Log In</h2>
+    <h2 className="text-center mb-4">Welcome back user</h2>
     {error && <Alert varient="Danger">{error}</Alert>}
     <Card className="card">
     <Form className="form" onSubmit={handleSubmit}>
       <FormGroup >
-        <Label for="email">Email</Label>
+       
             <Input
                 type="email"
                 name="email"
                 id="email"
-                placeholder="example@example.com"
+                placeholder="Email"
                 onChange={(e)=> setEmail(e.target.value)}
                 required
                 
             />
       </FormGroup>
       <FormGroup>
-        <Label for="password">Password</Label>
+        
             <Input
             type="password"
             name="password"
             id="password"
-            placeholder="********"
+            placeholder="Password"
             onChange={(e)=> setPassword(e.target.value)}
             required
          
             />
       </FormGroup>
-    <Button>Login</Button>
+    <Button className="button">Login</Button>
     
     
     <div>
@@ -80,8 +89,13 @@ export default function Login(){
         </div>
 </Card>
         <div className="w-100 text-center mt-2">
-            Don't have an account? <Link to="/signup">Sign up</Link>
+            New user? Sign up below 
+            <br></br>
+            <button className="button">
+            <Link className="link" to="/signup">Sign up</Link>
+            </button>
         </div>
+</div>
 </div>
     )
 }
