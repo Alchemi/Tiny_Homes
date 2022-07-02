@@ -1,10 +1,11 @@
 import React from "react"
-import Signup from "./Signup";
+import Signup from "./components/Signup";
+import ForgotPassword from "./components/ForgotPassword";
 import { Route, Routes } from "react-router-dom";
 
-import Login from "./Login"
+import Login from "./components/Login"
 import { Col, Row, Container} from "reactstrap";
-import { UserAuthContextProvider } from "../contexts/UserAuthContext";
+import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
+            <Route path="/forgotpassword" element={<ForgotPassword/>}/>
           </Routes>
           </UserAuthContextProvider>
         </Col>
