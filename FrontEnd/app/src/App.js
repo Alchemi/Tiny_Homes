@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login"
 import { Col, Row, Container} from "reactstrap";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
+import {Profile} from "./components/Profile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/forgotpassword" element={<ForgotPassword/>}/>
+            <Route exact path="/Profile"> <Profile /></Route>
           </Routes>
           </UserAuthContextProvider>
         </Col>
