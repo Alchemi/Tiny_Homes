@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import Signup from "./components/Signup";
-import ForgotPassword from "./components/ForgotPassword";
+import Signup from "./components/auth/Signup";
+import ForgotPassword from "./components/auth/ForgotPassword";
 
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/auth/Login";
