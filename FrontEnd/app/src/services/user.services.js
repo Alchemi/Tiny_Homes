@@ -1,4 +1,4 @@
-import { firestore } from "../firebase";
+import { db } from "../firebase";
 
 import {collection,
         getDocs, 
@@ -8,7 +8,7 @@ import {collection,
         deleteDoc, 
         doc} from "firebase/firestore";
 
-        const userCollectionRef= collection(firestore,"users");
+        const userCollectionRef= collection(db,"users");
 class UserDataService{
 
     addUser = (newUser) =>{
