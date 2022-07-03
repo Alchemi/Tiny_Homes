@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import { Route, Routes } from "react-router-dom";
@@ -6,8 +6,12 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login"
 import { Col, Row, Container} from "reactstrap";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
+import AddProduct from "./components/AddProduct";
 
 function App() {
+
+  const [productId, setProductId] = useState("");
+
   return (
     <Container>
       <Row>
