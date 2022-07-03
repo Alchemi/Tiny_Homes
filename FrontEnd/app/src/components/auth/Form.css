@@ -64,3 +64,11 @@ body {
   
   position: fixed;
 }
+.lname{
+  float: right;
+  max-width: fit-content;
+}
+.fname{
+  float:left;
+  max-width:max-content;
+}

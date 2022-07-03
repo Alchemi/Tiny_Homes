@@ -19,7 +19,7 @@ export default function Login(){
         setError("");
         try {
           await logIn(email, password)
-          navigate("/signup")
+          navigate("/")
         } catch (err){
           setError(err.message)
           
@@ -29,7 +29,7 @@ export default function Login(){
         e.preventDefault();
         try{
             await googleSignIn();
-            navigate("signup")
+            navigate("/")
 
         } catch(err){
             setError(err.message)
