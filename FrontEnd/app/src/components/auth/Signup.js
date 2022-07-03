@@ -22,6 +22,7 @@ const Signup=()=> {
     const {signUp}=useUserAuth();
     const navigate = useNavigate();
     
+    
     const handleSubmit= async (e)=> {
         e.preventDefault();
         if (await(password!== confirmpassword)){
