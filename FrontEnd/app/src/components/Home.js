@@ -10,7 +10,7 @@ export function Home(){
       
             <>
             <Navbar />
-           
+            
             <Best />
             <Footer />
             </>
