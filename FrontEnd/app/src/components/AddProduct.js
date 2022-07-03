@@ -29,7 +29,8 @@ const AddProduct = ({ id, setProductId }) => {
       baths,
       price,
       size,
-      furnished
+      furnished,
+      status
     };
     console.log(newProduct);
 
@@ -67,6 +68,7 @@ const AddProduct = ({ id, setProductId }) => {
       setPrice(docSnap.data().price);
       setSize(docSnap.data().size);
       SetFurnished(docSnap.data().furnished);
+      setStatus(docSnap.data().status);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
@@ -94,7 +96,7 @@ const AddProduct = ({ id, setProductId }) => {
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formPropertyName">
             <InputGroup>
-              <InputGroup.Text id="formPropertyName">P</InputGroup.Text>
+              <InputGroup.Text id="formPropertyName">N</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Property Name"
@@ -106,7 +108,7 @@ const AddProduct = ({ id, setProductId }) => {
 
           <Form.Group className="mb-3" controlId="formPropertyLocation">
             <InputGroup>
-              <InputGroup.Text id="formPropertyLocation">A</InputGroup.Text>
+              <InputGroup.Text id="formPropertyLocation">L</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Property Location"
@@ -117,7 +119,7 @@ const AddProduct = ({ id, setProductId }) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPropertyRooms">
             <InputGroup>
-              <InputGroup.Text id="formPropertyRooms">A</InputGroup.Text>
+              <InputGroup.Text id="formPropertyRooms">R</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Property Rooms"
@@ -128,7 +130,7 @@ const AddProduct = ({ id, setProductId }) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPropertyBaths">
             <InputGroup>
-              <InputGroup.Text id="formPropertyBaths">A</InputGroup.Text>
+              <InputGroup.Text id="formPropertyBaths">B</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Property Baths"
@@ -139,7 +141,7 @@ const AddProduct = ({ id, setProductId }) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPropertyPrice">
             <InputGroup>
-              <InputGroup.Text id="formPropertyPrice">A</InputGroup.Text>
+              <InputGroup.Text id="formPropertyPrice">Pr</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Property Price"
@@ -150,7 +152,7 @@ const AddProduct = ({ id, setProductId }) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPropertySize">
             <InputGroup>
-              <InputGroup.Text id="formPropertySize">A</InputGroup.Text>
+              <InputGroup.Text id="formPropertySize">S</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Property Size"
@@ -161,7 +163,7 @@ const AddProduct = ({ id, setProductId }) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formPropertyFurnished">
             <InputGroup>
-              <InputGroup.Text id="formPropertyFurnished">A</InputGroup.Text>
+              <InputGroup.Text id="formPropertyFurnished">F</InputGroup.Text>
               <Form.Control
                 type="boolean"
                 placeholder="Property Furnished"
