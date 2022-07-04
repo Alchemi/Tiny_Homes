@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 import { Form, Button, Card, FormGroup, Input, Label, Alert } from "reactstrap";
-import { useNavigate } from "react-router-dom";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Form.css';
 import {Link} from "react-router-dom";
-import { useUserAuth } from "../contexts/UserAuthContext";
+import { useUserAuth } from "../../contexts/UserAuthContext";
 
 export default function ForgotPassword(){ 
     const [message, setMessage]  = useState("");
     const [error, setError] = useState("");
     const [email, setEmail] = useState("");
     const { resetPassword}=useUserAuth();
-    const navigate = useNavigate();
+   
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -41,7 +41,7 @@ export default function ForgotPassword(){
                   required 
                   />
                 </FormGroup>
-                <Button >
+                <Button type="submit">
                   Reset Password
                 </Button>
               </Form>

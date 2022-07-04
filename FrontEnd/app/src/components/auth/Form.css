@@ -12,6 +12,7 @@
   
   .form {
     padding: 1em;
+    text-align: center;
   }
   
   label {
@@ -36,9 +37,38 @@ body {
   width: 100%;
   align-items: center;
   height: 100vh;
+  
 }
 
 .box {
   border: 1px solid #dfdfdf;
   background-color: #fff;
+}
+.button{
+  background-color: rgb(14, 25, 92);
+  color: #d3d3d3;
+  margin:0px;
+  border-radius: 1.5px;
+  
+  
+}
+.link{
+  color: #d3d3d3;
+}
+
+.title{
+  text-align: center;
+  font-weight: bold;
+}
+.nav{
+  
+  position: fixed;
+}
+.lname{
+  float: right;
+  max-width: fit-content;
+}
+.fname{
+  float:left;
+  max-width:max-content;
 }
