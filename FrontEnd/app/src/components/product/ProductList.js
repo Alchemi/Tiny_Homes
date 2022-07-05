@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
-import ProductDataService from "../services/property.services";
+import ProductDataService from "../../services/property.services";
 
 const ProductList = ({ getProductId }) => {
   const [products, setProducts] = useState([]);

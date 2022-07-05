@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
-import ProductDataService from "../services/property.services"
+import ProductDataService from "../../services/property.services"
 
 const AddProduct = ({ id, setProductId }) => {
     
@@ -19,7 +19,7 @@ const AddProduct = ({ id, setProductId }) => {
     e.preventDefault();
     setMessage("");
     if (houseName === "" || location === "" || rooms === "" || baths === ""|| price === ""|| size === "" || furnished === "") {
-      setMessage({ error: true, msg: "All fields are mandatory!" });
+      setMessage("All fields are mandatory!" );
       return;
     }
     const newProduct = {
@@ -38,13 +38,13 @@ const AddProduct = ({ id, setProductId }) => {
       if (id !== undefined && id !== "") {
         await ProductDataService.updateProduct(id, newProduct);
         setProductId("");
-        setMessage({ error: false, msg: "Updated successfully!" });
+        setMessage( "Updated successfully!" );
       } else {
         await ProductDataService.addProducts(newProduct);
         setMessage({ error: false, msg: "New Property added successfully!" });
       }
     } catch (err) {
-      setMessage({ error: true, msg: err.message });
+      setMessage( "error" );
     }
 
     setHouseName("");
@@ -56,7 +56,7 @@ const AddProduct = ({ id, setProductId }) => {
     SetFurnished(true/false);
   };
 
-  const editHandler = async () => {
+  const editHandler = useCallback(async() => {
     setMessage("");
     try {
       const docSnap = await ProductDataService.getProduct(id);
@@ -70,16 +70,16 @@ const AddProduct = ({ id, setProductId }) => {
       SetFurnished(docSnap.data().furnished);
       setStatus(docSnap.data().status);
     } catch (err) {
-      setMessage({ error: true, msg: err.message });
+      setMessage("error");
     }
-  };
+  });
 
   useEffect(() => {
     console.log("The id here is : ", id);
     if (id !== undefined && id !== "") {
       editHandler();
     }
-  }, [id]);
+  }, [id, editHandler]);
   return (
     <>
       <div className="p-4 box">
